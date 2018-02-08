@@ -1,0 +1,25 @@
+
+{
+    "twentyonepointsApp": {
+        "weight" : {
+            "home": {
+                "title": "Weights",
+                "createLabel": "Створити новий Weight",
+                "createOrEditLabel": "Створити чи редагувати Weight",
+                "search": "Знайти Weight"
+            },
+            "created": "Новий Weight створений з ідентифікатором {{ param }}",
+            "updated": "Weight оновлений з ідентифікатором {{ param }}",
+            "deleted": "Weight видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Weight {{ id }}?"
+            },
+            "detail": {
+                "title": "Weight"
+            },
+            "timestamp": "Timestamp",
+            "weight": "Weight",
+            "user": "User"
+        }
+    }
+}

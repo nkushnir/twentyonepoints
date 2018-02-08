@@ -1,0 +1,26 @@
+
+{
+    "twentyonepointsApp": {
+        "bloodpressure" : {
+            "home": {
+                "title": "Bloodpressures",
+                "createLabel": "Створити новий Bloodpressure",
+                "createOrEditLabel": "Створити чи редагувати Bloodpressure",
+                "search": "Знайти Bloodpressure"
+            },
+            "created": "Новий Bloodpressure створений з ідентифікатором {{ param }}",
+            "updated": "Bloodpressure оновлений з ідентифікатором {{ param }}",
+            "deleted": "Bloodpressure видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Bloodpressure {{ id }}?"
+            },
+            "detail": {
+                "title": "Bloodpressure"
+            },
+            "timestamp": "Timestamp",
+            "systolic": "Systolic",
+            "diastolic": "Diastolic",
+            "user": "User"
+        }
+    }
+}

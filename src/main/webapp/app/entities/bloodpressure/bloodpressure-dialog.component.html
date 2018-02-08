@@ -1,0 +1,78 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBloodpressureLabel" jhiTranslate="twentyonepointsApp.bloodpressure.home.createOrEditLabel">Create or edit a Bloodpressure</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!bloodpressure.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="bloodpressure.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="twentyonepointsApp.bloodpressure.timestamp" for="field_timestamp">Timestamp</label>
+            <div class="input-group">
+                <input id="field_timestamp" type="text" class="form-control" name="timestamp" ngbDatepicker  #timestampDp="ngbDatepicker" [(ngModel)]="bloodpressure.timestamp"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="timestampDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.timestamp?.dirty && editForm.controls.timestamp?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.timestamp?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="twentyonepointsApp.bloodpressure.systolic" for="field_systolic">Systolic</label>
+            <input type="number" class="form-control" name="systolic" id="field_systolic"
+                [(ngModel)]="bloodpressure.systolic" min="0"/>
+            <div [hidden]="!(editForm.controls.systolic?.dirty && editForm.controls.systolic?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.systolic?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                    This field should be at least 0.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.systolic?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="twentyonepointsApp.bloodpressure.diastolic" for="field_diastolic">Diastolic</label>
+            <input type="number" class="form-control" name="diastolic" id="field_diastolic"
+                [(ngModel)]="bloodpressure.diastolic" min="0"/>
+            <div [hidden]="!(editForm.controls.diastolic?.dirty && editForm.controls.diastolic?.invalid)">
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.diastolic?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                    This field should be at least 0.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.diastolic?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="twentyonepointsApp.bloodpressure.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="bloodpressure.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === bloodpressure.user?.id ? bloodpressure.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

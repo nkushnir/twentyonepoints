@@ -1,0 +1,28 @@
+
+{
+    "twentyonepointsApp": {
+        "points" : {
+            "home": {
+                "title": "Points",
+                "createLabel": "Створити новий Points",
+                "createOrEditLabel": "Створити чи редагувати Points",
+                "search": "Знайти Points"
+            },
+            "created": "Новий Points створений з ідентифікатором {{ param }}",
+            "updated": "Points оновлений з ідентифікатором {{ param }}",
+            "deleted": "Points видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Points {{ id }}?"
+            },
+            "detail": {
+                "title": "Points"
+            },
+            "timestamp": "Timestamp",
+            "exercise": "Exercise",
+            "meals": "Meals",
+            "alcohol": "Alcohol",
+            "notes": "Notes",
+            "user": "User"
+        }
+    }
+}
